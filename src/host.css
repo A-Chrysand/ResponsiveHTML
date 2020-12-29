@@ -1,0 +1,15 @@
+#titlepic {
+	--titlepicheight: 50px;
+	border-radius: 10px;
+	border: red 1px dotted;
+	margin-top: calc((var(--TopHorzionalBarHeight) - var(--titlepicheight)) / 2);
+	height: var(--titlepicheight);
+}
+#titlecharpic{
+	--titlepicheight: 50px;
+	border-radius: 10px;
+	border: red 1px dotted;
+	margin-top: calc((var(--TopHorzionalBarHeight) - var(--titlepicheight)) / 2);
+	height: var(--titlepicheight);
+	width: calc(3 * var(--titlepicheight));
+}
