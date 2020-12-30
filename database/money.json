@@ -1,0 +1,16 @@
+{
+	"moneylist":[
+		{
+			"item":"水电费",
+			"situation":"未交"
+		},
+		{
+			"item":"话费",
+			"situation":"已交"
+		},
+		{
+			"item":"给女朋友送礼物",
+			"situation":"未完成"
+		}
+	]
+}

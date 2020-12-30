@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.bootcss.com/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<title>Document</title>
+</head>
+<style>
+	#weather {
+		width: 100%;
+	}
+</style>
+
+<body>
+	<div id="weather">
+		<iframe scrolling="no" src="https://tianqiapi.com/api.php?style=tt&skin=pitaya" frameborder="0" width="590"
+			height="98" allowtransparency="true"></iframe>
+	</div>
+	<div id="moneyouttable">
+
+	</div>
+</body>
+<script>
+	var moneyjsonsrc = "../../database/money.json";
+	var moneyjson;
+	function readclassjsonfile() {
+		var moneyrequest = new XMLHttpRequest();
+		moneyrequest.open("get", moneyjsonsrc);
+		moneyrequest.send(null);
+		moneyrequest.onload = function () {
+			if (moneyrequest.status == 200) {
+				moneyjson = JSON.parse(moneyrequest.responseText);
+				fillmoneytable(moneyjson.moneylist);
+			}
+		}
+	}
+	window.onload = function () {
+		drawmoneyouttable("moneyouttable");
+		readclassjsonfile();
+
+	}
+
+	var unit_beiwanglu_classname = "beiwangluunit"//定义首行备忘录单元格
+	var unit_beiwanglutext_classname = "beiwanglutextunit";	//定义首行备忘录单元格
+	function drawmoneyouttable(targetstr3) {
+		var table_classname = "homeworktable";			//定义<table>的classname
+		var unit_caption_classname = "th_homework";		//定义首行表头的classname
+		var unit_xuhao = "td_xuhao";					//定义第一列序号的classname
+		var unit_xiangmu = "td_xiangmu"					//定义第二列项目的classname
+		var unit_situation = "td_situation"					//定义第三列时间的classname
+		var unit_doit = "td_doti"						//定义第四列doit的classname
+		var hw_num = 5;									//定义有多少行作业
+		//更改名称也要改变CSS中的
+
+		var div_ = $("#" + targetstr3);
+		div_.append("<table class=\"" + table_classname + "\"></table>");//添加表格
+		var table_ = $("." + table_classname);
+		var tr_;
+
+
+		for (var i = 0; i <= hw_num; i++) {
+			if (i == 0) {
+				//添加周信息
+				table_.append('<tr class="' + unit_caption_classname + '"><th class="' + unit_caption_classname + " " + unit_xuhao + '">序号</th><th class="' + unit_caption_classname + " " + unit_xiangmu + '">项目</th><th class="' + unit_caption_classname + " " + unit_situation + '">状态</th><th class="' + unit_caption_classname + " " + unit_doit + '">Do it</th><th class="' + unit_beiwanglu_classname + '">备忘录</th></tr >');
+			}
+			else {
+				table_.append('<tr class="num' + i + '"></tr>');	//添加行元素
+				tr_ = $(".num" + i);
+				tr_.append("<td class=\"" + unit_xuhao + "\"> " + i + " </td>");		//添加首列序号
+				tr_.append("<td class=\"" + unit_xiangmu + "\"> </td>");		//添加首列序号
+				tr_.append("<td class=\"" + unit_situation + "\">  </td>");		//添加首列序号
+				tr_.append("<td class=\"" + unit_doit + "\"> </td>");		//添加首列序号
+				if (i == 1) {
+					tr_.append("<td class=\"" + unit_beiwanglutext_classname + "\" rowspan=\"" + hw_num + "\" contentEditable=\"true\"></td>");
+
+				}
+			}
+		}
+	}
+
+
+
+	function fillmoneytable(moneyjson) {
+		for (var i = 0; i <= moneyjson.length; i++) {
+			$("#moneyouttable .td_xiangmu").eq(++i).html(moneyjson[--i].item);
+			$("#moneyouttable .td_situation").eq(++i).html(moneyjson[--i].situation);
+		}
+		$$("#moneyouttable .td_doti").eq(1).html("<a href=\"www.baidu.com\">交</a>");
+		///////////////////////////////////////
+
+	}
+
+</script>
+<style>
+	/*作业表样式*/
+	.homeworktable {
+		table-layout: fixed;
+		width: 100%;
+		max-width: 800px;
+		border-collapse: collapse;
+	}
+
+	.th_homework,
+	.td_xuhao,
+	.td_xiangmu,
+	.td_situation,
+	.td_doti,
+	.beiwangluunit,
+	.beiwanglutextunit {
+		text-align: center;
+		border-collapse: collapse;
+		border-style: solid;
+		border-width: 2px;
+		border-color: rgb(156, 202, 213);
+		padding: 10px 8px;
+	}
+
+	.th_homework,
+	.td_xuhao {
+		background-color: rgb(193, 235, 248);
+	}
+
+	.td_xuhao {
+		width: 4em;
+	}
+
+	.td_situation {
+		width: 8em;
+	}
+
+	.td_doti {
+		width: 6em;
+	}
+
+
+	.beiwanglutextunit {
+		text-align: left;
+		vertical-align: top;
+		margin: 0px;
+		padding: 0px;
+	}
+</style>
+
+</html>
