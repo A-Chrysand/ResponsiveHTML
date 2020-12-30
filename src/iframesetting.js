@@ -5,3 +5,4 @@ function GBFheight(offset, targetiframeId) {
 	var height = (document.body.clientHeight) + offset + 10 + 'px';
 	$("#" + targetiframeId, window.parent.document).css('height', height);
 }
+

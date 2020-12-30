@@ -1,16 +1,19 @@
 {
-	"moneylist":[
+	"moneylist": [
 		{
-			"item":"水电费",
-			"situation":"未交"
+			"item": "水电费",
+			"situation": "未完成",
+			"price": 600
 		},
 		{
-			"item":"话费",
-			"situation":"已交"
+			"item": "话费",
+			"situation": "已完成",
+			"price": 60
 		},
 		{
-			"item":"给女朋友送礼物",
-			"situation":"未完成"
+			"item": "给女朋友送礼物",
+			"situation": "未完成",
+			"price": 888
 		}
 	]
 }

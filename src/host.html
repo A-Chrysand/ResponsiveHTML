@@ -15,7 +15,13 @@
 	<title>Document</title>
 </head>
 <style>
+	body {
+		background: url("../../image/bg/top.jpg")top no-repeat;
+	}
 
+	.navbar-default {
+		background-color: rgb(129, 216, 250);
+	}
 </style>
 
 <body>
@@ -66,6 +72,9 @@
 				<li><img class="naviconpic" src="../image/icon/4news_tv.png"></li>
 			</ul>
 		</div>
+		<div id="centerpagearea">
+			<iframe class="embed-responsive-item iframepage" id="pg1_main" src="./PG1-Zhuye/pg1_main.html"></iframe>
+		</div>
 		<div class="row">
 			<div class="col-xs-6 col-sm-3" style="background-color: #ccc;">
 				<span class="hidden-xs">特别小型</span>
@@ -84,9 +93,6 @@
 				<span class="hidden-lg">大型</span>
 				<span class="visible-lg">✔ 在大型设备上可见</span>
 			</div>
-		</div>
-		<div id="centerpagearea">
-			<iframe class="embed-responsive-item iframepage" id="pg1_main" src="./PG1-Zhuye/pg1_main.html"></iframe>
 		</div>
 </body>
 <style>
@@ -136,14 +142,41 @@
 	}
 
 	.iframepage {
-		border: none;
+		border: red 2px dotted;
 
 		width: 100%;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	.row {
+		width: 100%;
+		display: inline;
+		position: fixed;
+		bottom: 0px;
 	}
 </style>
 <script>
 	var currentuser = JSON.parse(sessionStorage.getItem("file_currentuser"));
 	$(".RightUserItem #Username").html("Hi," + currentuser.name);
+
+	$(".naviconpic").eq(0).click(function () {
+		$("#pg1_main").attr("src", "./PG1-Zhuye/pg1_main.html");
+	})
+	$(".naviconpic").eq(1).click(function () {
+		$("#pg1_main").attr("src", "./PG2-Study/pg2_main.html");
+	})
 </script>
 
 </html>

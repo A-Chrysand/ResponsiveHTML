@@ -6,6 +6,7 @@ var homeworkjsonsrc = "../../database/homework.json";	//注意这里是以html�
 
 
 window.onload = function () {
+
 	readclassjsonfile();
 	drawclasstable("#classtable");
 	colorday();
@@ -13,8 +14,9 @@ window.onload = function () {
 	readhomeworkjsonfile();
 	drawhomeworktable("#homeworktable");
 	fillhomework();
-	GBFheight(0, "pg1-1_zhuye");
-	$("#classtabletitle").html(currentuser.banjistr);
+	GBFheight(0, "pg1iframe");
+	$("#classtabletitle").html(currentuser.banjistr + "课程表");
+	$('#centerpagearea', parent.document).css("height", $("body").css("height"));
 
 }
 
@@ -74,6 +76,7 @@ function fillclass(classjson) {
 		j = classjson[currentuser.banji][i].jieci.toString();
 		$("#w" + w + "_j" + j).html(classjson[currentuser.banji][i].kemu);
 	}
+	$(".tableCourse .beiwanglutextunit").html("1、周日晚有班会课");
 }
 
 
@@ -123,11 +126,8 @@ function drawhomeworktable(targetstr2) {
 	var unit_xuhao = "td_xuhao";					//定义第一列序号的classname
 	var unit_xiangmu = "td_xiangmu"					//定义第二列项目的classname
 	var unit_time = "td_time"						//定义第三列时间的classname
-	var unit_doit = "td_doti"						//定义第四列doit的classname
-	var hw_num = 5;									//定义有多少行作业
-	console.log("len:"+homeworkLength);
-	console.log(homeworkjson);
-
+	var unit_doit = "td_doit"						//定义第四列doit的classname
+	var hw_num = sessionStorage.getItem("ls_homeworkLength");									//定义有多少行作业
 	//更改名称也要改变CSS中的
 	var div_ = $(targetstr2);
 	div_.append("<table class=\"" + table_classname + "\"></table>");//添加表格
@@ -155,7 +155,6 @@ function drawhomeworktable(targetstr2) {
 	}
 }
 
-var homeworkLength;
 var hwcharacter = "homework1"
 function readhomeworkjsonfile() {
 	var homeworkrequest = new XMLHttpRequest();
@@ -164,7 +163,8 @@ function readhomeworkjsonfile() {
 	homeworkrequest.onload = function () {
 		if (homeworkrequest.status == 200) {
 			homeworkjson = JSON.parse(homeworkrequest.responseText);
-			homeworkLength = homeworkjson.homework1.length;
+			var homeworkLength = homeworkjson.homework1.length;
+			sessionStorage.setItem("ls_homeworkLength", homeworkLength);
 			fillhomework(homeworkjson[hwcharacter]);
 		}
 	}
@@ -176,4 +176,7 @@ function fillhomework(hwdata) {
 		$(".td_time").eq(++i).html(hwdata[--i].month + "月" + hwdata[i].day + "日");
 		//由于eq(i=0)时为表头，会把数据写进表头，所以要先++i选择完后再--i读取数据
 	}
+	$(".td_doit").eq(3).html("<a href=\"https://www.educoder.net/\" target=\"_blank\">edu</a>" );
+	$(".td_doit").eq(4).html("<a href=\"http://i.chaoxing.com/\" target=\"_blank\">学习通</a>" );
+	$(".td_doit").eq(5).html("<a href=\"http://i.chaoxing.com/\" target=\"_blank\">学习通</a>" );
 }
