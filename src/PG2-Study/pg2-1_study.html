@@ -5,14 +5,81 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://cdn.bootcss.com/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<title>Document</title>
+	<script src="./src/pg2-1_collection.js"></script>
 </head>
 
 <body>
-
-
+	<div class="container">
+		<div id="collectiontablediv"></div>
+	</div>
 </body>
+<style>
+	/*收藏表样式*/
+	.homeworktable {
+		table-layout: fixed;
+		width: 100%;
+		max-width: 800px;
+		border-collapse: collapse;
+	}
+
+	.th_clt,
+	.td_xuhao,
+	.td_title,
+	.td_go,
+	.td_doti,
+	.td_website,
+	.beiwangluunit,
+	.beiwanglutextunit {
+		text-align: center;
+		border-collapse: collapse;
+		border-style: solid;
+		border-width: 2px;
+		border-color: rgb(156, 202, 213);
+		padding: 10px 8px;
+	}
+
+	.td_title {
+		text-align: left;
+	}
+
+	.th_clt .td_title {
+		text-align: center;
+	}
+
+
+	.th_clt,
+	.td_xuhao {
+		background-color: rgb(193, 235, 248);
+	}
+
+	.td_xuhao {
+		width: 4em;
+	}
+
+	.td_go {
+		width: 6em;
+	}
+
+	.td_doti {
+		width: 4em;
+	}
+
+	.td_website {
+		width: 6em;
+	}
+
+	.beiwanglutextunit {
+		text-align: left;
+		vertical-align: top;
+		margin: 0px;
+		padding: 0px;
+	}
+</style>
 
 </html>

@@ -116,15 +116,12 @@
 		height: 500px;
 	}
 </style>
+
 <script>
 	window.onload = function () {
 		GBFheight(0, "pg1_main");
 	}
 
-</script>
-
-
-<script>
 	$("#horzionalnav li").eq(0).click(function () {
 		switchfn("#horzionalnav li .Guide_front", 0, "Liactive");
 		$("#pg1_main_iframebox iframe").attr("src", "./pg1-1_zhuye.html")
