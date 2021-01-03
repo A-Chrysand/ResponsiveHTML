@@ -7,6 +7,8 @@ var switchpagesrc = "../host.html";
 
 window.onload = function () {
 	readjsonfile();
+	$("#lg_input_text").val("123");
+	$("#lg_input_psw").val("123");
 }
 
 function saveNopennewpage() {
@@ -23,6 +25,7 @@ function readjsonfile() {
 		if (request.status == 200) {
 			rjson = JSON.parse(request.responseText);
 			rjson_length = rjson.visualuser.length;
+			console.log(rjson);
 		}
 	}
 }
@@ -39,7 +42,7 @@ function logincheck() {
 		alert("请输入密码");
 	}
 	else {
-		for (var i = 1; i < rjson_length; i++) {
+		for (var i = 0; i < rjson_length; i++) {
 
 			if (lgpgstr == rjson.visualuser[i].xuehao || lgpgstr == rjson.visualuser[i].name) {
 				if (lgpgpsw == rjson.visualuser[i].password) {

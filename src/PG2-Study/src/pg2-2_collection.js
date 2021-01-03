@@ -3,17 +3,18 @@ window.onload = function () {
 	readcollectionjsonfile();
 	pg2_collection_collectiontable_StyleSetting();
 	GBFheight(0, "pg2iframe");
+
 }
 
 
 
 var collectiontable_classname = "collectiontable";			//定义<table>的classname
-var collectiontable_unit_caption_classname = "th_collection";			//定义首行表头的classname
-var collectiontable_unit_xuhao = "td_xuhao";					//定义第一列序号的classname
-var collectiontable_unit_mingcheng = "td_mingcheng"					//定义第二列项目的classname
+var collectiontable_unit_caption_classname = "th_collection";//定义首行表头的classname
+var collectiontable_unit_xuhao = "td_xuhao";				//定义第一列序号的classname
+var collectiontable_unit_mingcheng = "td_mingcheng"			//定义第二列项目的classname
 var collectiontable_unit_jianjietext = "beiwanglutextunit";
 var collectiontable_unit_wangzhi = "td_website";
-var collectiontable_unit_goto = "td_go"					//定义第4列状态的classname
+var collectiontable_unit_goto = "td_go"						//定义第4列状态的classname
 
 function drawmoneyouttable(targetstr3) {
 	var moneyitem_num = sessionStorage.getItem("ls_collectionjsonL");	//定义有多少行+1
@@ -52,10 +53,18 @@ function readcollectionjsonfile() {
 			var collectionjson = JSON.parse(collectionrequest.responseText);
 			var collectionjsonL = collectionjson.user1[0].clttitle.length;
 			sessionStorage.setItem("ls_collectionjsonL", collectionjsonL);
-			//fillcollectiontable(collectionjson);
+			fillcollectiontable(collectionjson.user1);
 		}
 	}
 
+}
+
+function fillcollectiontable(collectionjson) {
+	console.log(collectionjson);
+	for (var i = 0; i <= sessionStorage.getItem("ls_collectionjsonL"); i++)
+	{
+		$(addcls(collectiontable_unit_mingcheng)).html(collectionjson[0].clttitle[i]);
+	}
 }
 
 function pg2_collection_collectiontable_StyleSetting() {

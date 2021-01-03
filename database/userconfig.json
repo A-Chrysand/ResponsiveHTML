@@ -18,7 +18,7 @@
 	"visualuser": [
 		{
 			"xuehao": "123",
-			"name": "123",
+			"name": "王大明",
 			"password": "123",
 			"banji": "wanggong1901",
 			"banjistr": "网络工程1901",
@@ -26,16 +26,16 @@
 		},
 		{
 			"xuehao": "1234",
-			"name": "123",
-			"password": "123",
+			"name": "王大大名",
+			"password": "1234",
 			"banji": "ruangong1901",
 			"banjistr": "软件工程1901",
 			"age": "123"
 		},
 		{
 			"xuehao": "12345",
-			"name": "123",
-			"password": "123",
+			"name": "太君",
+			"password": "12345",
 			"banji": "jike1901",
 			"banjistr": "计科1901",
 			"age": "123"

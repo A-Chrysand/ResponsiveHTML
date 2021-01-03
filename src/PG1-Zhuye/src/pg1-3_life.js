@@ -65,7 +65,7 @@ function readcollectionjsonfile() {
 
 function fillcollectiontable(moneyjson1) {
 
-	$("#tablecaption").html("你工人爷爷来了");
+	$("#tablecaption").html("生活费支出");
 	var summoney = 0;
 	var checkifcomplete = 0;
 	var tempsituation;

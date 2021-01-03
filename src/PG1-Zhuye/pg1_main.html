@@ -97,6 +97,11 @@
 					<div class="Guide_back">今日不宜</div>
 				</li>
 			</ul>
+			<div id="musicplayerdiv">
+				<iframe frameborder="no" width=200px height=40px
+					src="//music.163.com/outchain/player?type=2&id=1383811881&auto=0&height=32"
+					style="margin-top: -9px; "></iframe>
+			</div>
 		</div>
 		<div id="pg1_main_iframebox">
 			<iframe id="pg1iframe" class="embed-responsive-item iframepage" scrolling="no"
@@ -115,28 +120,36 @@
 		width: 100%;
 		height: 500px;
 	}
+
+	#musicplayerdiv {
+		margin-left: 70%;
+	}
 </style>
 
 <script>
 	window.onload = function () {
 		GBFheight(0, "pg1_main");
+		GBFheight(0, "centerpagearea");
 	}
 
 	$("#horzionalnav li").eq(0).click(function () {
 		switchfn("#horzionalnav li .Guide_front", 0, "Liactive");
 		$("#pg1_main_iframebox iframe").attr("src", "./pg1-1_zhuye.html")
 		GBFheight(0, "pg1_main");
+		GBFheight(0, "centerpagearea");
 
 	})
 	$("#horzionalnav li").eq(1).click(function () {
 		switchfn("#horzionalnav li .Guide_front", 1, "Liactive");
 		$("#pg1_main_iframebox iframe").attr("src", "./pg1-2_lunch.html")
 		GBFheight(0, "pg1_main");
+		GBFheight(0, "centerpagearea");
 	})
 	$("#horzionalnav li").eq(2).click(function () {
 		switchfn("#horzionalnav li .Guide_front", 2, "Liactive");
 		$("#pg1_main_iframebox iframe").attr("src", "./pg1-3_life.html")
 		GBFheight(0, "pg1_main");
+		GBFheight(0, "centerpagearea");
 	})
 
 	function switchfn(target, num, classname) {

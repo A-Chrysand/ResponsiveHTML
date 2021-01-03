@@ -117,29 +117,26 @@
 		height: 500px;
 	}
 </style>
+
 <script>
 	window.onload = function () {
 		GBFheight(0, "pg1_main");
+		GBFheight(0, "centerpagearea");
 	}
 
-</script>
-
-
-<script>
+	
 	$("#horzionalnav li").eq(0).click(function () {
 		switchfn("#horzionalnav li .Guide_front", 0, "Liactive");
-		$("#pg1_main_iframebox iframe").attr("src", "./pg2-1_study.html")
+		$("#pg1_main_iframebox iframe").attr("src", "./pg2-2_collection.html")
 		GBFheight(0, "pg1_main");
 
 	})
 	$("#horzionalnav li").eq(1).click(function () {
 		switchfn("#horzionalnav li .Guide_front", 1, "Liactive");
-		//$("#pg1_main_iframebox iframe").attr("src", "./pg2-2_lunch.html")
 		GBFheight(0, "pg1_main");
 	})
 	$("#horzionalnav li").eq(2).click(function () {
 		switchfn("#horzionalnav li .Guide_front", 2, "Liactive");
-		//$("#pg1_main_iframebox iframe").attr("src", "./pg2-3_life.html")
 		GBFheight(0, "pg1_main");
 	})
 
