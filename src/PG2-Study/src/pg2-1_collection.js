@@ -1,5 +1,5 @@
 window.onload = function () {
-	drawmoneyouttable("collectiontablediv");
+	drawcollectionouttable("collectiontablediv");
 	readcollectionjsonfile();
 	pg2_collection_collectiontable_StyleSetting();
 	GBFheight(0, "pg2iframe");
@@ -16,15 +16,15 @@ var collectiontable_unit_jianjietext = "beiwanglutextunit";
 var collectiontable_unit_wangzhi = "td_website";
 var collectiontable_unit_goto = "td_go"						//定义第4列状态的classname
 
-function drawmoneyouttable(targetstr3) {
-	var moneyitem_num = sessionStorage.getItem("ls_collectionjsonL");	//定义有多少行+1
+function drawcollectionouttable(targetstr3) {
+	var collectionitem_num = sessionStorage.getItem("ls_collectionjsonL");	//定义有多少行+1
 
 	var div_ = $("#" + targetstr3);
 	div_.append("<table class=\"" + collectiontable_classname + "\"></table>");//添加表格
 	var table_ = $("." + collectiontable_classname);
 	var tr_;
 
-	for (var i = 0; i <= moneyitem_num; i++) {
+	for (var i = 0; i <= collectionitem_num; i++) {
 		if (i == 0) {
 			//添加周信息
 			table_.append('<tr class="' + collectiontable_unit_caption_classname + '"><th class="' + collectiontable_unit_caption_classname + '">序号</th><th class="' + collectiontable_unit_caption_classname + '">名称</th><th class="' + collectiontable_unit_caption_classname + '">简介</th><th class="' + collectiontable_unit_caption_classname + '">网址</th><th class="' + collectiontable_unit_caption_classname + '">立即访问</th></tr >');
@@ -53,17 +53,21 @@ function readcollectionjsonfile() {
 			var collectionjson = JSON.parse(collectionrequest.responseText);
 			var collectionjsonL = collectionjson.user1[0].clttitle.length;
 			sessionStorage.setItem("ls_collectionjsonL", collectionjsonL);
-			fillcollectiontable(collectionjson.user1);
+
+			fillcollectiontable(collectionjson.user1, collectionjsonL);
 		}
 	}
 
 }
 
-function fillcollectiontable(collectionjson) {
-	console.log(collectionjson);
-	for (var i = 0; i <= sessionStorage.getItem("ls_collectionjsonL"); i++)
-	{
-		$(addcls(collectiontable_unit_mingcheng)).html(collectionjson[0].clttitle[i]);
+function fillcollectiontable(collectionjson, length) {
+
+	for (var i = 0; i < length; i++) {
+		$(addcls(collectiontable_unit_mingcheng)).eq(i).html(collectionjson[0].clttitle[i]);
+		$(addcls(collectiontable_unit_jianjietext)).eq(i).html(collectionjson[0].discription[i]);
+		$(addcls(collectiontable_unit_wangzhi)).eq(i).html(collectionjson[0].cltsite[i]);
+		$(addcls(collectiontable_unit_goto)).eq(i).html('<a target="_blank" href="' + collectionjson[0].cltsite[i] + '">菜鸟</a>');
+
 	}
 }
 
@@ -87,7 +91,7 @@ function pg2_collection_collectiontable_StyleSetting() {
 	$(addcls(collectiontable_unit_caption_classname)).eq(3).css({ "width": "8em" });//选择简介列的宽度
 	$(addcls(collectiontable_unit_caption_classname)).eq(5).css({ "width": "8em" });//选择立即访问列的宽度
 
-	$(addcls(collectiontable_unit_xuhao) + "," + addcls(collectiontable_unit_mingcheng) + "," + addcls(collectiontable_unit_wangzhi) + "," + addcls(collectiontable_unit_goto)).css({
+	$(addcls(collectiontable_unit_xuhao) + "," + addcls(collectiontable_unit_mingcheng) + "," + addcls(collectiontable_unit_jianjietext) + "," + addcls(collectiontable_unit_wangzhi) + "," + addcls(collectiontable_unit_goto)).css({
 		"border-collapse": "collapse",
 		"border": "rgb(156, 202, 213) 2px solid",
 		"padding": "10px 8px",
@@ -99,12 +103,14 @@ function pg2_collection_collectiontable_StyleSetting() {
 	$(addcls(collectiontable_unit_mingcheng)).css({ "text-align": "left" });//选择名称单元格
 
 	$(addcls(collectiontable_unit_jianjietext)).css({
-		"border-collapse": "collapse",
-		"border": "rgb(156, 202, 213) 2px solid",
 		"text-align": " left",
 		"vertical-align": "top",
 		"margin": "0px",
 		"padding": "0px"
+	})
+	
+	$(addcls(collectiontable_unit_wangzhi)).css({
+		"text-align": " left"
 	})
 }
 
