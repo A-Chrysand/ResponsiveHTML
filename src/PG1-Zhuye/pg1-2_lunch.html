@@ -15,7 +15,7 @@
 </head>
 <style>
 	body {
-		--tablewidth: 726px;
+		--tablewidth: 720px;
 	}
 
 	#AccountTable {
@@ -24,10 +24,8 @@
 	}
 
 	#AccountTableInfo {
-
+		border: rgb(29, 109, 69) 1px solid;
 		overflow: hidden;
-		height: 300px;
-
 	}
 
 	#pictures {
@@ -39,6 +37,10 @@
 		text-align: center;
 		font-size: 1.5em;
 		font-weight: bold;
+	}
+
+	.imginstru {
+		height: 3em;
 	}
 
 	img {
@@ -54,6 +56,8 @@
 			<tr>
 				<td>
 					<h1 style="font-weight: bolder; text-align: center;">恰饭指南</h1>
+					<p class="mingyan">人是铁饭是钢，一顿不吃饿得■</p>
+					<p class="mingyan" style="font-size: 0.5em;">hxd，今天你要多吃点</p>
 				</td>
 			</tr>
 			<tr>
@@ -107,7 +111,13 @@
 <style>
 	#buttongroup {
 		width: 95px;
-		margin: 0px auto;
+		margin: 10px auto;
+	}
+
+	.mingyan {
+		font-size: 1.5em;
+		font-family: "楷体";
+		color: red;
 	}
 </style>
 <script>
@@ -127,7 +137,7 @@
 			animatecounter--;
 		}
 	}
-	window.onload=function(){
+	window.onload = function () {
 		//$('#centerpagearea', parent.document).css("height",$("body").css("height")); 
 	}
 </script>

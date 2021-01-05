@@ -1,31 +1,28 @@
-var rjson_length;
-var rjson;
+var userjson_length;
+var userjson;
 var currentuser = new Object();
 
-var jsonsrc = "../../database/userconfig.json";
-var switchpagesrc = "../host.html";
 
 window.onload = function () {
-	readjsonfile();
+	readjsonfile("../../database/userconfig.json");
 	$("#lg_input_text").val("123");
 	$("#lg_input_psw").val("123");
 }
 
 function saveNopennewpage() {
 	sessionStorage.setItem("file_currentuser", JSON.stringify(currentuser));
-	location.href = switchpagesrc;
-	//parent.location.href = switchpagesrc;
+	location.href = "../host.html";		//切换到目标页面
 }
 
-function readjsonfile() {
+
+function readjsonfile(targetstr) {
 	var request = new XMLHttpRequest();
-	request.open("get", jsonsrc);
+	request.open("get", targetstr);
 	request.send(null);
 	request.onload = function () {
 		if (request.status == 200) {
-			rjson = JSON.parse(request.responseText);
-			rjson_length = rjson.visualuser.length;
-			console.log(rjson);
+			userjson = JSON.parse(request.responseText);
+			userjson_length = userjson.visualuser.length;
 		}
 	}
 }
@@ -42,12 +39,12 @@ function logincheck() {
 		alert("请输入密码");
 	}
 	else {
-		for (var i = 0; i < rjson_length; i++) {
+		for (var i = 0; i < userjson_length; i++) {
 
-			if (lgpgstr == rjson.visualuser[i].xuehao || lgpgstr == rjson.visualuser[i].name) {
-				if (lgpgpsw == rjson.visualuser[i].password) {
+			if (lgpgstr == userjson.visualuser[i].xuehao || lgpgstr == userjson.visualuser[i].name) {
+				if (lgpgpsw == userjson.visualuser[i].password) {
 					alert("登陆成功\n将跳转到主页");
-					currentuser = rjson.visualuser[i];
+					currentuser = userjson.visualuser[i];
 					lgfb = true;
 					break;
 				}
@@ -56,7 +53,7 @@ function logincheck() {
 					return;
 				}
 			}
-			else if (i == rjson_length - 1) {
+			else if (i == userjson_length - 1) {
 				alert("用户不存在\n");
 				return;
 			}
@@ -65,7 +62,7 @@ function logincheck() {
 			saveNopennewpage();
 		}
 	}
-	console.log(currentuser);
+	console.log("当前用户" + currentuser);
 }
 
 function register() {
@@ -110,8 +107,8 @@ function register() {
 		return;
 	}
 	else {
-		for (var i = 1; i < rjson_length; i++) {
-			if (regpgNumber == rjson.visualuser[i].xuehao/* || regpgName == rjson.visualuser[i].name*/) {
+		for (var i = 1; i < userjson_length; i++) {
+			if (regpgNumber == userjson.visualuser[i].xuehao/* || regpgName == rjson.visualuser[i].name*/) {
 				alert("该用户已存在，请登录");
 				return;
 			}
@@ -125,7 +122,7 @@ function register() {
 		currentuser.banji = regpgClass;
 		currentuser.age = regpgAge;
 		currentuser.banjistr = $("#ClassSelectBox").find(":selected").html();
-		rjson.visualuser[rjson_length] = currentuser;
+		userjson.visualuser[userjson_length] = currentuser;
 		alert("注册成功！\n将跳转到主页");
 		saveNopennewpage();
 	}

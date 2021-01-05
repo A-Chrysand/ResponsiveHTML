@@ -10,7 +10,7 @@
 		crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
 		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	
+
 	<link rel="stylesheet" href="./host.css" />
 	<script src="./iframesetting.js"></script>
 	<title>Document</title>
@@ -80,29 +80,11 @@
 			<iframe class="embed-responsive-item iframepage" id="pg1_main" src="./PG1-Zhuye/pg1_main.html"></iframe>
 		</div>
 	</div>
-	<div class="row" style="margin: 0px;padding: 0px;">
-		<div class="col-xs-6 col-sm-3" style="background-color: #ccc;">
-			<span class="hidden-xs">特别小型</span>
-			<span class="visible-xs">✔ 在特别小型设备上可见</span>
-		</div>
-		<div class="col-xs-6 col-sm-3" style="background-color: #ccc;">
-			<span class="hidden-sm">小型</span>
-			<span class="visible-sm">✔ 在小型设备上可见</span>
-		</div>
-		<div class="clearfix visible-xs"></div>
-		<div class="col-xs-6 col-sm-3" style="background-color: #ccc;">
-			<span class="hidden-md">中型</span>
-			<span class="visible-md">✔ 在中型设备上可见</span>
-		</div>
-		<div class="col-xs-6 col-sm-3" style="background-color: #ccc;">
-			<span class="hidden-lg">大型</span>
-			<span class="visible-lg">✔ 在大型设备上可见</span>
-		</div>
-	</div>
-	<footer id="host_footer">
+
+	<footer id="host_footer" class="container">
 		<img style="margin-top: -209px; margin-left: 87%;" src="../image/img/decoration/tree1.png">
 		<img style="margin-top: -208px; margin-left: 1%;" src="../image/img/decoration/tree2.png">
-		<div style="bottom: 1em; width: 100%;height: 1em;"><a style="color: red;" target="_blank"
+		<div style="display: inline;; width: 100%;height: 1em;"><a style="color: red;" target="_blank"
 				href="https://a-chrysand.github.io/ResponsiveHTML/src/account/account.html">预览网页</a><span>&nbsp;&nbsp;&nbsp;</span><a
 				style="color: red;" target="_blank" href="https://github.com/A-Chrysand/ResponsiveHTML">源代码</a></div>
 	</footer>
@@ -159,6 +141,8 @@
 	}
 
 	#host_footer {
+
+		float: bottom;
 		width: 100%;
 		height: 50px;
 		z-index: -1;
@@ -177,11 +161,11 @@
 	var currentuser = JSON.parse(sessionStorage.getItem("file_currentuser"));
 	$(".RightUserItem #Username").html("Hi," + currentuser.name);
 
-	$(".naviconpic" ).eq(0).click(function () {
+	$(".naviconpic").eq(0).click(function () {
 		$("#pg1_main").attr("src", "./PG1-Zhuye/pg1_main.html");
 		switchfn("#navul li", 0, "active");
 	})
-	$("#navul li" ).eq(0).click(function () {
+	$("#navul li").eq(0).click(function () {
 		$("#pg1_main").attr("src", "./PG1-Zhuye/pg1_main.html");
 		switchfn("#navul li", 0, "active");
 	})
@@ -191,7 +175,7 @@
 		switchfn("#navul li", 1, "active");
 		GBFheight(0, "pg1_main");
 	})
-	$("#navul li" ).eq(1).click(function () {
+	$("#navul li").eq(1).click(function () {
 		$("#pg1_main").attr("src", "./PG2-Study/pg2_main.html");
 		switchfn("#navul li", 1, "active");
 		GBFheight(0, "pg1_main");

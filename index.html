@@ -17,6 +17,22 @@
 <script>
 	window.onload=function(){
 		window.location.href="./src/account/account.html";
+
 	}
+
+
+	function readjsonfile(jsonsrc) {
+	var request = new XMLHttpRequest();
+	request.open("get", jsonsrc);
+	request.send(null);
+	request.onload = function () {
+		if (request.status == 200) {
+			rjson = JSON.parse(request.responseText);
+			rjson_length = rjson.visualuser.length;
+			console.log(rjson);
+		}
+	}
+}
 </script>
+
 </html>

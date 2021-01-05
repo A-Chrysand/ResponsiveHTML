@@ -64,8 +64,6 @@ function readcollectionjsonfile() {
 }
 
 function fillcollectiontable(moneyjson1) {
-
-	$("#tablecaption").html("生活费支出");
 	var summoney = 0;
 	var checkifcomplete = 0;
 	var tempsituation;
@@ -122,7 +120,7 @@ function pg3_life_moneytable_StyleSetting() {
 
 	$(addcls(moneytable_unit_xuhao)).css({ "background-color": "rgb(193, 235, 248)" });
 	$(addcls(moneytable_unit_xiangmu)).css({ "text-align": "left" });//选择项目单元格
-	
+
 	$(addcls(unit_beiwanglu_classname)).css({
 		"text-align": "center",
 		"color": "darkblue",
