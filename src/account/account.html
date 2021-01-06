@@ -13,13 +13,15 @@
 	<title>AccountPage</title>
 
 	<script src="./account.js"></script>
+
 </head>
 <style>
 	body {
+		background: url("../../image/bg/loginbg.jpg")center fixed no-repeat;
 		min-width: 1000px;
 	}
 
-	#topbg {
+	/*#topbg {
 		position: fixed;
 		top: 0px;
 		background: url("../../image/bg/top.jpg") top no-repeat;
@@ -35,12 +37,21 @@
 		width: 100%;
 		height: 500px;
 		z-index: -1;
+	}*/
+	#table-div {
+		width: 525px;
+		margin-top: 200px;
+		margin-left: 60%;
+		background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(250, 250, 250, 0.1));
+		padding: 10px;
+		border-radius: 15px;
+		border: blanchedalmond 2px solid;
 	}
 
 	#AccountTable {
 		width: 500px;
-		margin: 100px auto;
-		background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.01));
+
+
 
 	}
 
@@ -56,18 +67,27 @@
 	}
 
 	#AccountTableInfo {
-		border-color: crimson;
-		border-width: 2px;
+		border-color: rgba(255, 150, 150, 0.5);
+		border-width: 1px;
 		border-style: solid;
 		overflow: hidden;
 		height: 300px;
 		max-width: 500px;
 	}
+
+	@font-face {
+		font-family: "titlechar";
+		src: url("../../image/titlechar.woff") format("woff");
+	}
 </style>
 
 <body>
 	<header id="topbg"></header>
-	<div>
+	<div style="margin-left: 10%;margin-top: -5%; position: absolute;">
+		<span style="font-family: 'titlechar';font-size: 125px;">ABCD</span>
+	</div>
+	<div id="table-div">
+
 		<table id="AccountTable">
 			<tr>
 				<td id="login" onclick="changetologin()">登录</td>
@@ -127,12 +147,12 @@
 			</tr>
 		</table>
 	</div>
-	<footer id="bottombg">
+	<!--footer id="bottombg">
 		<div style="position:fixed;bottom: 1em; width: 100%;height: 1em;background: rgba(0,0,0,1),no-repeat;"><a
 				target="_blank"
 				href="https://a-chrysand.github.io/ResponsiveHTML/src/account/account.html">预览网页</a><span>&nbsp;&nbsp;&nbsp;</span><a
 				target="_blank" href="https://github.com/A-Chrysand/ResponsiveHTML">源代码</a></div>
-	</footer>
+	</footer-->
 
 </body>
 <script>

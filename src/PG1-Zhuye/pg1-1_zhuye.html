@@ -24,23 +24,35 @@
 		line-height: 2em;
 		margin: 0px;
 	}
+
+	@font-face {
+		font-family: "tabletitle";
+		src: url("../../image/tabletitle.woff") format("woff");
+	}
+
+	.customfont {
+		font-weight: bolder;
+		font-family: 'tabletitle';
+		letter-spacing: 3px;
+	}
 </style>
 
 <body>
 	<div class="container">
-		<h1 id="classtabletitle" style="font-weight: bolder;">1</h1>
-		<p class="mingyan" >书山有路勤为径，学海无涯苦作舟——唐·韩愈</p>
+		<h1 id="classtabletitle" class="customfont">1</h1>
+		<p class="mingyan">书山有路勤为径，学海无涯苦作舟——唐·韩愈</p>
 		<div id="classtable"></div>
-		<h1 style="font-weight: bolder;">作业表</h1>
-		<p  class="mingyan">构成天才的决定因素就应是勤奋——现代·郭沫若</p>
+		<h1 class="customfont">作业表</h1>
+		<p class="mingyan">构成天才的决定因素就应是勤奋——现代·郭沫若</p>
 		<div id="homeworktable"></div>
 	</div>
 </body>
 <style>
-	.mingyan{
+	.mingyan {
 		font-size: 1.5em;
 		font-family: "楷体";
 		color: red;
 	}
 </style>
+
 </html>

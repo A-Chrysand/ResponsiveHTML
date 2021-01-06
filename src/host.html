@@ -17,12 +17,17 @@
 </head>
 <style>
 	body {
-		background: url("../image/bg/top.jpg")top no-repeat;
+		/*background: url("../image/bg/top.jpg")top no-repeat;*/
+		background: rgba(0,0,0,0.05) top no-repeat;
 		overflow-x: hidden;
 	}
 
 	.navbar-default {
 		background-color: rgb(129, 216, 250);
+	}
+
+	#musicplayerdiv {
+		margin-top: 9px;
 	}
 </style>
 
@@ -32,6 +37,7 @@
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#horzionalmenu">
 				<span class="sr-only">展开导航</span>
+				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
@@ -49,8 +55,15 @@
 				<li class="active" style="cursor: pointer;"><a>主页</a></li>
 				<li style="cursor: pointer;"><a>学习</a></li>
 				<li style="cursor: pointer;"><a>聊天</a></li>
-				<li><a>新闻</a></li>
+				<li style="cursor: pointer;"><a>新闻</a></li>
 				<li style="cursor: pointer;"><a target="_blank" href="./PG5-Usercenter/pg5_main.html">用户中心</a></li>
+				<li>
+					<div id="musicplayerdiv">
+						<iframe frameborder="no" width=200px height=40px
+							src="//music.163.com/outchain/player?type=2&id=1383811881&auto=0&height=32"
+							style="margin-top: -9px; "></iframe>
+					</div>
+				</li>
 			</ul>
 			<div id="RightUser">
 				<div class="RightUserItem">
@@ -74,7 +87,6 @@
 				<li><img class="naviconpic" src="../image/icon/2study_pencil.png"></li>
 				<li><img class="naviconpic" src="../image/icon/3chat_bubble.png"></li>
 				<li><img class="naviconpic" src="../image/icon/4news_tv.png"></li>
-
 			</ul>
 		</div>
 		<div id="centerpagearea">
@@ -130,13 +142,16 @@
 	}
 
 	#centerpagearea {
-		width: 100%;
+				width: 100%;
 		height: 100px;
 		padding: 0 100px;
 	}
 
 	.iframepage {
-		border: red 2px dotted;
+		/*border: red 2px dotted;*/
+		border: rgba(0,0,0,0.03) 2px solid;
+		border-radius: 15px;
+
 		width: 100%;
 	}
 
@@ -187,6 +202,17 @@
 	$("#navul li").eq(2).click(function () {
 		$("#pg1_main").attr("src", "./PG3-Chat/pg3_chat_main.html");
 		switchfn("#navul li", 2, "active");
+		GBFheight(0, "pg1_main");
+	});
+
+	$(".naviconpic").eq(3).click(function () {
+		$("#pg1_main").attr("src", "./PG4-News/pg4_main.html");
+		switchfn("#navul li", 3, "active");
+		GBFheight(0, "pg1_main");
+	});
+	$("#navul li").eq(3).click(function () {
+		$("#pg1_main").attr("src", "./PG4-News/pg4_main.html");
+		switchfn("#navul li", 3, "active");
 		GBFheight(0, "pg1_main");
 	});
 

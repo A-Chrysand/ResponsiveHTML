@@ -14,6 +14,17 @@
 	<title>Document</title>
 </head>
 <style>
+	@font-face {
+		font-family: "tabletitle";
+		src: url("../../image/tabletitle.woff") format("woff");
+	}
+
+	.customfont {
+		font-weight: bolder;
+		font-family: 'tabletitle';
+		letter-spacing: 3px;
+	}
+
 	body {
 		--tablewidth: 720px;
 	}
@@ -55,7 +66,7 @@
 		<table id="AccountTable">
 			<tr>
 				<td>
-					<h1 style="font-weight: bolder; text-align: center;">恰饭指南</h1>
+					<h1 class="customfont" style="font-weight: bolder; text-align: center;">恰饭指南</h1>
 					<p class="mingyan">人是铁饭是钢，一顿不吃饿得■</p>
 					<p class="mingyan" style="font-size: 0.5em;">hxd，今天你要多吃点</p>
 				</td>

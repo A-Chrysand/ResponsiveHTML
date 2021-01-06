@@ -14,7 +14,6 @@
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 	<title>Document</title>
-	<script src="./src/pg3_chat_main.js"></script>
 </head>
 
 <body>
@@ -43,7 +42,7 @@
 						</div>
 					</div>
 				</td>
-				<td id="titlebox" colspan="2">titlebox</td>
+				<td id="titlebox" colspan="2" style="padding: 10px;font-size: 1.5em;font-weight: bold;">富婆集团(34)</td>
 
 			</tr>
 			<tr>
@@ -51,31 +50,73 @@
 					<div>
 						<ul style="list-style: none;" id="lianxirenul">
 							<li class="lianxirenli">
-								<div>富婆</div></li>
-							<li class="lianxirenli">富婆</li>
-							<li class="lianxirenli">富婆</li>
-							<li class="lianxirenli">富婆</li>
-							<li class="lianxirenli">富婆</li>
-							<li class="lianxirenli">富婆</li>
-							<li class="lianxirenli">富婆</li>
-							<li class="lianxirenli">富婆</li>
+								<div><img width="30px" src="../../image/icon/fupo.jpg">富婆1</div>
+							</li>
+							<li class="lianxirenli">
+								<div><img width="30px" src="../../image/icon/fupo.jpg">富婆2</div>
+							</li>
+							<li class="lianxirenli">
+								<div><img width="30px" src="../../image/icon/fupo.jpg">富婆3</div>
+							</li>
+							<li class="lianxirenli">
+								<div><img width="30px" src="../../image/icon/fupo.jpg">富婆4</div>
+							</li>
+							<li class="lianxirenli">
+								<div><img width="30px" src="../../image/icon/fupo.jpg">富婆5</div>
+							</li>
+							<li class="lianxirenli">
+								<div><img width="30px" src="../../image/icon/fupo.jpg">富婆6</div>
+							</li>
+							<li class="lianxirenli">
+								<div><img width="30px" src="../../image/icon/fupo.jpg">富婆7</div>
+							</li>
 						</ul>
 					</div>
 				</td>
-				<td id="chatbox" class="right2" rowspan="2">nul1l1</td>
-				<td id="infobox" class="right1">null2</td>
+				<td id="chatbox" class="right2" rowspan="2">
+					<iframe src="./pg3_chat_liaotiankuang.html" frameborder="none" width="100%" height="320px"></iframe>
+				</td>
+				<td id="infobox" class="right1"><div>
+					<h4 style="text-align: center;">公告：</h4>
+					<p style="text-indent: 2em;">入群找群主领超级大红包，大概$5000000吧。</p>
+				</div></td>
 			</tr>
 			<tr>
-				<td id="groupbox" class="right1" rowspan="2">null3</td>
+				<td id="groupbox" class="right1" rowspan="2">
+					<div>
+						<ul style="list-style: none;" id="lianxirenul">
+							<li class="lianxirenli">
+								<div><img width="30px" src="../../image/icon/fupo.jpg">富婆1</div>
+							</li>
+							<li class="lianxirenli">
+								<div><img width="30px" src="../../image/icon/fupo.jpg">富婆2</div>
+							</li>
+							<li class="lianxirenli">
+								<div><img width="30px" src="../../image/icon/fupo.jpg">富婆3</div>
+							</li>
+							<li class="lianxirenli">
+								<div><img width="30px" src="../../image/icon/fupo.jpg">富婆4</div>
+							</li>
+							<li class="lianxirenli">
+								<div><img width="30px" src="../../image/icon/fupo.jpg">富婆5</div>
+							</li>
+						</ul>
+					</div>
+
+
+				</td>
 			</tr>
 			<tr>
-				<td id="inputbox" class="right2">null4</td>
+				<td id="inputbox" class="right2" contentEditable="true">输入框
+					<button class="btn btn-info" style="position: absolute; right: 180px; top:460px">发送</button>
+				</td>
 			</tr>
 		</table>
 	</div>
 </body>
 <style>
 	#chatboxtable {
+
 		width: 100%;
 		height: 500px;
 	}
@@ -102,25 +143,35 @@
 	}
 
 	#infobox {
+		vertical-align: top;
 		height: 150px;
 		width: 150px;
 	}
 
 	#inputbox {
+		vertical-align: top;
 		height: 125px;
 	}
 
-	#lianxirenul{
+	#lianxirenul {
 		padding: 0;
 		width: 100%;
 	}
-	#lianxirenul .lianxirenli{
+
+	#chatbox {
+		vertical-align: top;
+	}
+
+	#lianxirenul .lianxirenli {
 		border: blanchedalmond 1px solid;
 		height: 4em;
 		line-height: 4em;
-		text-align: center;
-		padding: 0;
+
+		padding: 0 15px;
 		width: 100%;
+	}
+	#groupbox{
+		vertical-align: top;
 	}
 </style>
 
