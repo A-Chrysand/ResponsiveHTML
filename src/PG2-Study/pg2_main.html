@@ -21,6 +21,8 @@
 	}
 
 	#horzionalnav ul {
+		left: 15%;
+
 		position: absolute;
 		display: flex;
 		padding: 0px;
@@ -124,7 +126,7 @@
 		GBFheight(0, "centerpagearea");
 	}
 
-	
+
 	$("#horzionalnav li").eq(0).click(function () {
 		switchfn("#horzionalnav li .Guide_front", 0, "Liactive");
 		$("#pg1_main_iframebox iframe").attr("src", "./pg2-1_collection.html");

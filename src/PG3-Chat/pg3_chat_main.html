@@ -14,6 +14,7 @@
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 	<title>Document</title>
+	<script src="./src/pg3_chat_main.js"></script>
 </head>
 
 <body>
@@ -35,7 +36,8 @@
 											aria-hidden="true"></span></a></li>
 								<li><a href="#">搜索&nbsp;<span class="glyphicon glyphicon-search"
 											aria-hidden="true"></span></a></li>
-								<li><a href="#">设置&nbsp;<span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+								<li><a href="#">设置&nbsp;<span class="glyphicon glyphicon-cog"
+											aria-hidden="true"></span></a>
 								</li>
 							</ul>
 						</div>
@@ -45,7 +47,21 @@
 
 			</tr>
 			<tr>
-				<td id="lianxirenbox" class="left2" rowspan="3">lanxiren</td>
+				<td id="lianxirenbox" class="left2" rowspan="3">
+					<div>
+						<ul style="list-style: none;" id="lianxirenul">
+							<li class="lianxirenli">
+								<div>富婆</div></li>
+							<li class="lianxirenli">富婆</li>
+							<li class="lianxirenli">富婆</li>
+							<li class="lianxirenli">富婆</li>
+							<li class="lianxirenli">富婆</li>
+							<li class="lianxirenli">富婆</li>
+							<li class="lianxirenli">富婆</li>
+							<li class="lianxirenli">富婆</li>
+						</ul>
+					</div>
+				</td>
 				<td id="chatbox" class="right2" rowspan="2">nul1l1</td>
 				<td id="infobox" class="right1">null2</td>
 			</tr>
@@ -68,7 +84,7 @@
 		border: brown 1px solid;
 	}
 
-	.dropdown-menu{
+	.dropdown-menu {
 		min-width: 50px;
 	}
 
@@ -80,6 +96,8 @@
 	}
 
 	#lianxirenbox {
+		vertical-align: top;
+		padding: 5px;
 		width: 150px;
 	}
 
@@ -90,6 +108,19 @@
 
 	#inputbox {
 		height: 125px;
+	}
+
+	#lianxirenul{
+		padding: 0;
+		width: 100%;
+	}
+	#lianxirenul .lianxirenli{
+		border: blanchedalmond 1px solid;
+		height: 4em;
+		line-height: 4em;
+		text-align: center;
+		padding: 0;
+		width: 100%;
 	}
 </style>
 

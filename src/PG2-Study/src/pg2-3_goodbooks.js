@@ -99,11 +99,11 @@ function bookselect() {
 		else {
 			bookitem_num = targetnumber;
 			drawbooktable("goodbooktablediv");
-			
 			fillselectedtable(targetlktion);
 		}
 	}
 	pg3_goodbooks_booktable_StyleSetting();
+	GBFheight(0, "pg2iframe");
 }
 
 function fillselectedtable(objlist) {
