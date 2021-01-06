@@ -1,12 +1,30 @@
 window.onload = function () {
-	drawcollectionouttable("collectiontablediv");
-	readcollectionjsonfile();
+	RDF_collectiontable();
+
+
 	pg2_collection_collectiontable_StyleSetting();
 	GBFheight(0, "pg2iframe");
 
 }
 
-
+var collectionjsonsrc = "../../database/collection.json";
+function RDF_collectiontable() {
+	$.ajax({
+		url: collectionjsonsrc,
+		type: 'GET',
+		async: false,//使用同步的方式,true为异步方式
+		data: {},//这里使用json对象
+		success: function (data) {
+			console.log(data);
+			var collectionjsonL = data.user1[0].clttitle.length;
+			drawcollectionouttable("collectiontablediv", collectionjsonL);
+			fillcollectiontable(data.user1, collectionjsonL);
+		},
+		fail: function () {
+			alert("Collectiontable ERROR");
+		}
+	});
+}
 
 var collectiontable_classname = "collectiontable";			//定义<table>的classname
 var collectiontable_unit_caption_classname = "th_collection";//定义首行表头的classname
@@ -15,11 +33,8 @@ var collectiontable_unit_mingcheng = "td_mingcheng"			//定义第二列项目的
 var collectiontable_unit_jianjietext = "beiwanglutextunit";
 var collectiontable_unit_wangzhi = "td_website";
 var collectiontable_unit_goto = "td_go"						//定义第4列状态的classname
-
-function drawcollectionouttable(targetstr3) {
-	var collectionitem_num = sessionStorage.getItem("ls_collectionjsonL");	//定义有多少行+1
-
-	var div_ = $("#" + targetstr3);
+function drawcollectionouttable(targetstr3, collectionitem_num) {
+	var div_ = $(addid(targetstr3));
 	div_.append("<table class=\"" + collectiontable_classname + "\"></table>");//添加表格
 	var table_ = $("." + collectiontable_classname);
 	var tr_;
@@ -43,22 +58,6 @@ function drawcollectionouttable(targetstr3) {
 	}
 }
 
-var collectionjsonsrc = "../../database/collection.json";
-function readcollectionjsonfile() {
-	var collectionrequest = new XMLHttpRequest();
-	collectionrequest.open("get", collectionjsonsrc);
-	collectionrequest.send(null);
-	collectionrequest.onload = function () {
-		if (collectionrequest.status == 200) {
-			var collectionjson = JSON.parse(collectionrequest.responseText);
-			var collectionjsonL = collectionjson.user1[0].clttitle.length;
-			sessionStorage.setItem("ls_collectionjsonL", collectionjsonL);
-
-			fillcollectiontable(collectionjson.user1, collectionjsonL);
-		}
-	}
-
-}
 
 function fillcollectiontable(collectionjson, length) {
 
@@ -108,7 +107,7 @@ function pg2_collection_collectiontable_StyleSetting() {
 		"margin": "0px",
 		"padding": "0px"
 	})
-	
+
 	$(addcls(collectiontable_unit_wangzhi)).css({
 		"text-align": " left"
 	})

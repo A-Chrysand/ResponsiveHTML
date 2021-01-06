@@ -1,13 +1,34 @@
+
+
+
 window.onload = function () {
-	drawmoneyouttable("moneyouttable");
-	readcollectionjsonfile();
+	RDF_moneytable();
 	pg3_life_moneytable_StyleSetting();
-	$("#moneyouttable .td_doti").eq(1).html("<a href=\"http://www.baidu.com/\" target=\"_blank\">百度</a>");
-	$("#moneyouttable .beiwanglutextunit").html("1、你又没有女朋友<br>2、下个月这张卡去注销\n");
+	$("#moneytablediv .td_doti").eq(1).html("<a href=\"http://www.baidu.com/\" target=\"_blank\">百度</a>");
+	$("#moneytablediv .beiwanglutextunit").html("1、你又没有女朋友<br>2、下个月这张卡去注销\n");
 	//$('#centerpagearea', parent.document).css("height",$("body").css("height")); 
-
-
 }
+
+
+
+
+var collectionjsonsrc = "../../database/money.json";
+function RDF_moneytable() {
+	$.ajax({
+		url: collectionjsonsrc,
+		type: 'GET',
+		async: false,//使用同步的方式,true为异步方式
+		data: {},//这里使用json对象
+		success: function (data) {
+			drawmoneytable("moneytablediv", data["moneylist"].length);
+			fillmoneytable(data["moneylist"]);
+		},
+		fail: function () {
+			alert("Moneytable ERROR");
+		}
+	});
+}
+
 
 var unit_beiwanglu_classname = "beiwangluunit"//定义首行备忘录单元格
 var unit_beiwanglutext_classname = "beiwanglutextunit";	//定义首行备忘录单元格
@@ -18,10 +39,8 @@ var moneytable_unit_xiangmu = "td_xiangmu"					//定义第二列项目的classna
 var moneytable_unit_money = "td_money";
 var moneytable_unit_situation = "td_situation"					//定义第4列状态的classname
 var moneytable_unit_doit = "td_doti"						//定义第5列doit的classname
-function drawmoneyouttable(targetstr3) {
-	var moneyitem_num = sessionStorage.getItem("ls_moneyjsonL");	//定义有多少行+1
-	moneyitem_num++;
-
+function drawmoneytable(targetstr3, moneyitem_num) {
+	moneyitem_num += 1;									//多留一行给总结
 	var div_ = $("#" + targetstr3);
 	div_.append("<table class=\"" + moneytable_classname + "\"></table>");//添加表格
 	var table_ = $("." + moneytable_classname);
@@ -47,45 +66,30 @@ function drawmoneyouttable(targetstr3) {
 	}
 }
 
-var collectionjsonsrc = "../../database/money.json";
-function readcollectionjsonfile() {
-	var moneyrequest = new XMLHttpRequest();
-	moneyrequest.open("get", collectionjsonsrc);
-	moneyrequest.send(null);
-	moneyrequest.onload = function () {
-		if (moneyrequest.status == 200) {
-			var moneyjson = JSON.parse(moneyrequest.responseText);
-			var moneyjsonL = moneyjson.moneylist.length;
-			sessionStorage.setItem("ls_moneyjsonL", moneyjsonL);
-			fillcollectiontable(moneyjson["moneylist"]);
-		}
-	}
 
-}
-
-function fillcollectiontable(moneyjson1) {
+function fillmoneytable(moneyjson1) {
 	var summoney = 0;
 	var checkifcomplete = 0;
 	var tempsituation;
 	for (var i = 0; i < moneyjson1.length; i++) {
-		$("#moneyouttable .td_xiangmu").eq(i).html(moneyjson1[i].item);
+		$("#moneytablediv .td_xiangmu").eq(i).html(moneyjson1[i].item);
 		tempsituation = moneyjson1[i].situation;
-		$("#moneyouttable .td_situation").eq(i).html(tempsituation);
+		$("#moneytablediv .td_situation").eq(i).html(tempsituation);
 		if (tempsituation == "未完成");
 		{
 			checkifcomplete++;
 		}
-		$("#moneyouttable .td_money").eq(i).html(moneyjson1[i].price);
+		$("#moneytablediv .td_money").eq(i).html(moneyjson1[i].price);
 		summoney += moneyjson1[i].price;
 	}
 	///////////////////////////////////////
-	$("#moneyouttable .td_xuhao:last").html("总结");
-	$("#moneyouttable .td_money:last").html(summoney);
+	$("#moneytablediv .td_xuhao:last").html("总结");
+	$("#moneytablediv .td_money:last").html(summoney);
 	if (checkifcomplete >= 0) {
-		$("#moneyouttable .td_situation:last").html("未完成").css("color", "red");
+		$("#moneytablediv .td_situation:last").html("未完成").css("color", "red");
 	}
 	else {
-		$("#moneyouttable .td_situation:last").html("已完成").css("color", "gold");
+		$("#moneytablediv .td_situation:last").html("已完成").css("color", "gold");
 	}
 }
 

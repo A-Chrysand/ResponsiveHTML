@@ -1,17 +1,12 @@
 var currentuser = JSON.parse(sessionStorage.getItem("file_currentuser"));
-var classjson = new Array();
 var classjsonsrc = "../../database/class.json";		//注意这里是以html文件为起点做相对位置的
 var homeworkjson = new Array();
 var homeworkjsonsrc = "../../database/homework.json";	//注意这里是以html文件为起点做相对位置的
 
 
 window.onload = function () {
-	drawclasstable("#classtable");
-	readclassjsonfile();
-	colorday();
-
-	drawhomeworktable("#homeworktable");
-	readhomeworkjsonfile();
+	RDF_classtable();
+	RDF_homeworktable();
 
 	pg1_zhuye_classtable_StyleSetting();
 	pg1_zhuye_homeworktable_StyleSetting();
@@ -19,9 +14,25 @@ window.onload = function () {
 	GBFheight(0, "pg1iframe");
 	$("#classtabletitle").html(currentuser.banjistr + "课程表");
 	$('#centerpagearea', parent.document).css("height", $("body").css("height"));
-
-
 }
+
+function RDF_classtable() {
+	$.ajax({
+		url: classjsonsrc,
+		type: 'GET',
+		async: false,//使用同步的方式,true为异步方式
+		data: {},//这里使用json对象
+		success: function (data) {
+			drawclasstable("#classtable");
+			fillclass(data);
+			colorday();
+		},
+		fail: function () {
+			alert("Classtable ERROR");
+		}
+	});
+}
+
 var unit_beiwanglu_classname = "beiwangluunit"//定义首行备忘录单元格
 var unit_beiwanglutext_classname = "beiwanglutextunit";	//定义备忘录单元格
 var classtable_unit_jieci_classname = "th_course"	//定义首行列单元格的Classname
@@ -58,18 +69,6 @@ function drawclasstable(TargetClassTableDivId) {
 	}
 }
 
-function readclassjsonfile() {
-	var classrequest = new XMLHttpRequest();
-	classrequest.open("get", classjsonsrc);
-	classrequest.send(null);
-	classrequest.onload = function () {
-		if (classrequest.status == 200) {
-			classjson = JSON.parse(classrequest.responseText);
-			fillclass(classjson);
-		}
-	}
-}
-
 function fillclass(classjson) {
 	var i, w, j;
 	for (i in classjson[currentuser.banji]) {
@@ -79,7 +78,6 @@ function fillclass(classjson) {
 	}
 	$(".tableCourse .beiwanglutextunit").html("1、周日晚有班会课");
 }
-
 
 function colorday() {
 	var myDate = new Date();/*
@@ -122,15 +120,33 @@ function colorday() {
 }
 
 
+var hwcharacter = "homework1"
+function RDF_homeworktable() {
+	$.ajax({
+		url: homeworkjsonsrc,
+		type: 'GET',
+		async: false,//使用同步的方式,true为异步方式
+		data: {},//这里使用json对象
+		success: function (data) {
+			var homeworkLength = data[hwcharacter].length;
+			drawhomeworktable("#homeworktable", homeworkLength);
+			fillhomework(data[hwcharacter]);
+		},
+		fail: function () {
+			alert("homeworktable ERROR");
+		}
+	});
+}
+
+
 var homeworktable_classname = "homeworktable";	//定义<table>的classname
 var homeworktable_unit_caption_classname = "th_homework";		//定义首行表头的classname
 var homeworktable_unit_xuhao = "td_xuhao";					//定义第一列序号的classname
 var homeworktable_unit_xiangmu = "td_xiangmu"					//定义第二列项目的classname
 var homeworktable_unit_time = "td_time"						//定义第三列时间的classname
 var homeworktable_unit_doit = "td_doit"						//定义第四列doit的classname
-var homeworktable_hw_num = sessionStorage.getItem("ls_homeworkLength");									//定义有多少行作业
 //更改名称也要改变CSS中的
-function drawhomeworktable(targetstr2) {
+function drawhomeworktable(targetstr2, homeworktable_hw_num) {
 
 	var div_ = $(targetstr2);
 	div_.append("<table class=\"" + homeworktable_classname + "\"></table>");//添加表格
@@ -158,21 +174,7 @@ function drawhomeworktable(targetstr2) {
 	}
 }
 
-var hwcharacter = "homework1"
-function readhomeworkjsonfile() {
-	var homeworkrequest = new XMLHttpRequest();
-	homeworkrequest.open("get", homeworkjsonsrc);
-	homeworkrequest.send(null);
-	homeworkrequest.onload = function () {
-		if (homeworkrequest.status == 200) {
-			homeworkjson = JSON.parse(homeworkrequest.responseText);
-			var homeworkLength = homeworkjson.homework1.length;
-			sessionStorage.setItem("ls_homeworkLength", homeworkLength);
-			fillhomework(homeworkjson[hwcharacter]);
-		}
-	}
 
-}
 function fillhomework(hwdata) {
 	for (var i in hwdata) {
 		$(".td_xiangmu").eq(i).html(hwdata[i].subject + hwdata[i].title);

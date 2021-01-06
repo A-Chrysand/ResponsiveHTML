@@ -129,17 +129,20 @@
 		switchfn("#horzionalnav li .Guide_front", 0, "Liactive");
 		$("#pg1_main_iframebox iframe").attr("src", "./pg2-1_collection.html");
 		GBFheight(0, "pg1_main");
+		GBFheight(0, "centerpagearea");
 
 	})
 	$("#horzionalnav li").eq(1).click(function () {
 		switchfn("#horzionalnav li .Guide_front", 1, "Liactive");
 		$("#pg1_main_iframebox iframe").attr("src", "./pg2-2_tool.html");
 		GBFheight(0, "pg1_main");
+		GBFheight(0, "centerpagearea");
 	})
 	$("#horzionalnav li").eq(2).click(function () {
 		switchfn("#horzionalnav li .Guide_front", 2, "Liactive");
 		$("#pg1_main_iframebox iframe").attr("src", "./pg2-3_goodbooks.html");
 		GBFheight(0, "pg1_main");
+		GBFheight(0, "centerpagearea");
 	})
 
 	function switchfn(target, num, classname) {
