@@ -48,9 +48,9 @@
 			<ul class="nav navbar-nav" id="navul">
 				<li class="active" style="cursor: pointer;"><a>主页</a></li>
 				<li style="cursor: pointer;"><a>学习</a></li>
-				<li><a>聊天</a></li>
+				<li style="cursor: pointer;"><a>聊天</a></li>
 				<li><a>新闻</a></li>
-				<li><a>美景</a></li>
+				<li style="cursor: pointer;"><a>用户中心</a></li>
 			</ul>
 			<div id="RightUser">
 				<div class="RightUserItem">
@@ -74,7 +74,7 @@
 				<li><img class="naviconpic" src="../image/icon/2study_pencil.png"></li>
 				<li><img class="naviconpic" src="../image/icon/3chat_bubble.png"></li>
 				<li><img class="naviconpic" src="../image/icon/4news_tv.png"></li>
-				<li><img class="naviconpic" src="../image/icon/usericon.jpg"></li>
+
 			</ul>
 		</div>
 		<div id="centerpagearea">
@@ -122,7 +122,6 @@
 		text-align: center;
 		line-height: calc(var(--height) - 20px);
 
-
 		cursor: pointer;
 	}
 
@@ -163,22 +162,33 @@
 	$(".naviconpic").eq(0).click(function () {
 		$("#pg1_main").attr("src", "./PG1-Zhuye/pg1_main.html");
 		switchfn("#navul li", 0, "active");
-	})
+	});
 	$("#navul li").eq(0).click(function () {
 		$("#pg1_main").attr("src", "./PG1-Zhuye/pg1_main.html");
 		switchfn("#navul li", 0, "active");
-	})
+	});
 
 	$(".naviconpic").eq(1).click(function () {
 		$("#pg1_main").attr("src", "./PG2-Study/pg2_main.html");
 		switchfn("#navul li", 1, "active");
 		GBFheight(0, "pg1_main");
-	})
+	});
 	$("#navul li").eq(1).click(function () {
 		$("#pg1_main").attr("src", "./PG2-Study/pg2_main.html");
 		switchfn("#navul li", 1, "active");
 		GBFheight(0, "pg1_main");
-	})
+	});
+
+	$(".naviconpic").eq(2).click(function () {
+		$("#pg1_main").attr("src", "./PG3-Chat/pg3_chat_main.html");
+		switchfn("#navul li", 2, "active");
+		GBFheight(0, "pg1_main");
+	});
+	$("#navul li").eq(2).click(function () {
+		$("#pg1_main").attr("src", "./PG3-Chat/pg3_chat_main.html");
+		switchfn("#navul li", 2, "active");
+		GBFheight(0, "pg1_main");
+	});
 
 	function switchfn(target, num, classname) {
 		$(target + ":not(:eq(" + num + "))").removeClass(classname);
