@@ -1,8 +1,7 @@
 window.onload = function () {
 	RDF_collectiontable();
-
-
 	pg2_collection_collectiontable_StyleSetting();
+	
 	GBFheight(0, "pg2iframe");
 
 }

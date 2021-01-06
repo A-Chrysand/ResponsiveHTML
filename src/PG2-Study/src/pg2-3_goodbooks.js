@@ -3,6 +3,7 @@ window.onload = function () {
 	drawbooktable("goodbooktablediv");
 	fillbooktable();
 	pg3_goodbooks_booktable_StyleSetting();
+	GBFheight(0, "pg2iframe");
 }
 
 var booktable_classname = "booktable";			//定义<table>的classname
