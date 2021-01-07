@@ -122,7 +122,7 @@ function register() {
 		currentuser.banji = regpgClass;
 		currentuser.age = regpgAge;
 		currentuser.banjistr = $("#ClassSelectBox").find(":selected").html();
-		console.log(currentuser);
+		currentuser.sex = regpgsex;
 		userjson.visualuser[userjson_length] = currentuser;
 		alert("注册成功！\n将跳转到主页");
 		saveNopennewpage();

@@ -25,40 +25,35 @@
 				<label for="inputPassword6" class="col-form-label">学号：</label>
 			</div>
 			<div class="col-auto">
-				<input type="password" id="inputbox_xuehao" class="form-control">
+				<input type="text" id="inputbox_xuehao" class="form-control" readonly>
 			</div>
 			<div class="col-auto">
 				<label for="inputPassword6" class="col-form-label">姓名：</label>
 			</div>
 			<div class="col-auto">
-				<input type="password" id="inputbox_name" class="form-control">
+				<input type="text" id="inputbox_name" class="form-control" readonly>
 			</div>
 			<div class="col-auto">
 				<label for="inputPassword6" class="col-form-label">班级：</label>
 			</div>
 			<div class="col-auto">
-				<input type="password" id="inputbox_class" class="form-control">
+				<input type="text" id="inputbox_class" class="form-control" readonly>
 			</div>
 			<div class="col-auto">
 				<label for="inputPassword6" class="col-form-label">年龄：</label>
 			</div>
 			<div class="col-auto">
-				<input type="password" id="inputbox_age" class="form-control">
+				<input type="text" id="inputbox_age" class="form-control" readonly>
 			</div>
 			<div class="col-auto">
 				<label for="inputPassword6" class="col-form-label">性别：</label>
 			</div>
 			<div class="col-auto">
-				<label class="radio-inline">
-					<input type="radio" id="choose_sex_male" name="choose_sex" value="male"> 男
-				</label>
-				<label class="radio-inline">
-					<input type="radio" id="choose_sex_female" name="choose_sex" value="female"> 女
-				</label>
+				<input type="text" id="inputbox_sex" class="form-control" readonly>
 
 			</div>
-			<div class="row">
-				<button id="zhuce" class="btn btn-warning col-6" type="button" onclick="">修改信息</button>
+			<div class="offset-2" id="btnbox">
+				<button id="xiugaixinxi" class="btn btn-warning col-6" type="button">修改信息</button>
 			</div>
 
 
@@ -66,6 +61,33 @@
 	</div>
 
 </body>
+<script>
+	var currentuser = JSON.parse(sessionStorage.getItem("file_currentuser"));
+	$("#inputbox_xuehao").val(currentuser.xuehao);
+	$("#inputbox_name").val(currentuser.name);
+	$("#inputbox_class").val(currentuser.banji);
+	$("#inputbox_age").val(currentuser.age);
+	$("#inputbox_sex").val(currentuser.sex);
+
+	$("#xiugaixinxi").click(function () {
+		$("#listbox input").removeAttr("readonly");
+		$("#btnbox").html("");
+		$("#btnbox").html("<button id=\"queren\" class=\"btn btn-danger col-3\" type=\"button\">确认</button>"+
+		"<button id=\"quxiao\" class=\"btn btn-warning col-3\" type=\"button\">取消</button>");
+	});
+
+	$("#queren").click(function(){
+		$("#listbox input").addAttr("readonly");
+		$("#btnbox").html("");
+		$("#btnbox").html("<button id=\"xiugaixinxi\" class=\"btn btn-warning col-6\" type=\"button\">修改信息</button>");
+	});
+	$("#quxiao").click(function(){
+		$("#listbox input").addAttr("readonly");
+		$("#btnbox").html("");
+		$("#btnbox").html("<button id=\"xiugaixinxi\" class=\"btn btn-warning col-6\" type=\"button\">修改信息</button>");
+	});
+	
+</script>
 <style>
 	.form-group {
 		margin-top: -166px;
@@ -92,9 +114,13 @@
 		width: 100px;
 	}
 
-	#zhuce {
-		margin-left: 4em;
+	#btnbox {
+		padding-left: 1.25em;
 		margin-top: 1em;
+	}
+
+	#quxiao{
+		margin-left: 1em;
 	}
 </style>
 

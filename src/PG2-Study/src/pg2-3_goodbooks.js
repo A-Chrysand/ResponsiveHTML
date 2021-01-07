@@ -77,7 +77,6 @@ function addcls(targetclass) {
 function bookselect() {
 	$(addcls(booktable_classname)).html("");//清除表格内容
 	var slt = $("#bookselectlist").find(":selected").val();
-	console.log(slt);
 	if (slt == "none") {
 		bookitem_num = booklist.length;
 		drawbooktable("goodbooktablediv");

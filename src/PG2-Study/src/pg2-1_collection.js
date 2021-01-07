@@ -14,7 +14,6 @@ function RDF_collectiontable() {
 		async: false,//使用同步的方式,true为异步方式
 		data: {},//这里使用json对象
 		success: function (data) {
-			console.log(data);
 			var collectionjsonL = data.user1[0].clttitle.length;
 			drawcollectionouttable("collectiontablediv", collectionjsonL);
 			fillcollectiontable(data.user1, collectionjsonL);

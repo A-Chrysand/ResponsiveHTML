@@ -1,6 +1,3 @@
-
-
-
 window.onload = function () {
 	RDF_moneytable();
 	pg3_life_moneytable_StyleSetting();

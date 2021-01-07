@@ -8,23 +8,13 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
 		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 		crossorigin="anonymous"></script>
-	<script src="../iframesetting.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
 		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<title>Document</title>
+	<title>pg1-2</title>
+	<script src="../common.js"></script>
+	<link rel="stylesheet" href="../common.css">
 </head>
 <style>
-	@font-face {
-		font-family: "tabletitle";
-		src: url("../../image/tabletitle.woff") format("woff");
-	}
-
-	.customfont {
-		font-weight: bolder;
-		font-family: 'tabletitle';
-		letter-spacing: 3px;
-	}
-
 	body {
 		--tablewidth: 720px;
 	}
@@ -66,7 +56,7 @@
 		<table id="AccountTable">
 			<tr>
 				<td>
-					<h1 class="customfont" style="font-weight: bolder; text-align: center;">恰饭指南</h1>
+					<h1 class="tabletitle_space_class" style="font-weight: bolder; text-align: center;">恰饭指南</h1>
 					<p class="mingyan">人是铁饭是钢，一顿不吃饿得■</p>
 					<p class="mingyan" style="font-size: 0.5em;">hxd，今天你要多吃点</p>
 				</td>
@@ -113,24 +103,13 @@
 				</td>
 			</tr>
 		</table>
-		<div id="buttongroup">
+		<div id="buttongroup" style="width: 95px;margin: 10px auto;">
 			<button onclick="changetologin()" class="btn btn-warning btn-lg">1</button>
 			<button onclick="changetoregister()" class="btn btn-warning btn-lg">2</button>
 		</div>
 	</div>
 </body>
-<style>
-	#buttongroup {
-		width: 95px;
-		margin: 10px auto;
-	}
 
-	.mingyan {
-		font-size: 1.5em;
-		font-family: "楷体";
-		color: red;
-	}
-</style>
 <script>
 	var animatetime = 300;
 	var animatecounter = 0;

@@ -10,26 +10,11 @@
 		crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
 		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-	<link rel="stylesheet" href="./host.css" />
-	<script src="./iframesetting.js"></script>
 	<title>Document</title>
+	<script src="./common.js"></script>
+	<link rel="stylesheet" href="./host.css" />
+	<link rel="stylesheet" href="./common.css">
 </head>
-<style>
-	body {
-		/*background: url("../image/bg/top.jpg")top no-repeat;*/
-		background: rgba(0,0,0,0.05) top no-repeat;
-		overflow-x: hidden;
-	}
-
-	.navbar-default {
-		background-color: rgb(129, 216, 250);
-	}
-
-	#musicplayerdiv {
-		margin-top: 9px;
-	}
-</style>
 
 <body>
 	<nav class="navbar navbar-default" role="navigation">
@@ -44,9 +29,10 @@
 				<span class="icon-bar"></span>
 			</button>
 			<div style="height: 50px;">
-				<img id="titlepic" src="../image/icon/titlepic.png">
-				<img id="titlecharpic" src="../image/icon/titlecharpic.png">
-				<span class="titlechar">网站介绍</span>
+				<img id="titlepic" style="margin-top: -1.5em;" src="../image/icon/titlepic.png">
+				<span class="titlecharclass" style="font-size: 40px;line-height: 49px;letter-spacing: 3px;">ABCD</span>
+				<span
+					style="font-size: 20px;line-height: 49px;text-align: center;">&nbsp;&nbsp;学生休闲bar&nbsp;&nbsp;</span>
 			</div>
 		</div>
 		<!--响应式桌面端部分-->
@@ -90,7 +76,8 @@
 			</ul>
 		</div>
 		<div id="centerpagearea">
-			<iframe class="embed-responsive-item iframepage" id="pg1_main" src="./PG1-Zhuye/pg1_main.html"></iframe>
+			<iframe class="embed-responsive-item iframepage" id="pg1_main" scrolling="no"
+				src="./PG1-Zhuye/pg1_main.html"></iframe>
 		</div>
 	</div>
 
@@ -102,117 +89,61 @@
 				style="color: red;" target="_blank" href="https://github.com/A-Chrysand/ResponsiveHTML">源代码</a></div>
 	</footer>
 </body>
-<style>
-	.RightUserItem {
-		display: block;
-		float: right;
-		line-height: 50px;
-		font-size: 18px;
-		padding: 0 5px;
-	}
 
-	#usericon {
-		height: 30px;
-		border: red 1px dotted;
-	}
-
-	#verticalmenu {
-		top: 20%;
-		position: fixed;
-		margin-left: -45px;
-		padding: 0px;
-		width: 75px;
-	}
-
-	#verticalmenu_ul li {
-		--height: 75px;
-		border: steelblue 1px solid;
-
-		padding: 10px 10px;
-		height: var(--height);
-
-		text-align: center;
-		line-height: calc(var(--height) - 20px);
-
-		cursor: pointer;
-	}
-
-	.naviconpic {
-		width: 55px;
-	}
-
-	#centerpagearea {
-				width: 100%;
-		height: 100px;
-		padding: 0 100px;
-	}
-
-	.iframepage {
-		/*border: red 2px dotted;*/
-		border: rgba(0,0,0,0.03) 2px solid;
-		border-radius: 15px;
-
-		width: 100%;
-	}
-
-	#host_footer {
-		float: bottom;
-		width: 100%;
-		height: 50px;
-		z-index: -1;
-		background: url("../image/bg/grass_side.png") bottom repeat-x;
-	}
-
-	.row {
-		width: 100%;
-		display: inline;
-		position: fixed;
-		bottom: 0px;
-	}
-</style>
 <script>
 	var currentuser = JSON.parse(sessionStorage.getItem("file_currentuser"));
+	if (currentuser == null) {
+		alert("请先登录");
+	}
 	$(".RightUserItem #Username").html("Hi," + currentuser.name);
 
 	$(".naviconpic").eq(0).click(function () {
 		$("#pg1_main").attr("src", "./PG1-Zhuye/pg1_main.html");
 		switchfn("#navul li", 0, "active");
+		switchfn("#verticalmenu_ul li", 0, "active");
 	});
 	$("#navul li").eq(0).click(function () {
 		$("#pg1_main").attr("src", "./PG1-Zhuye/pg1_main.html");
 		switchfn("#navul li", 0, "active");
+		switchfn("#verticalmenu_ul li", 0, "active");
 	});
 
 	$(".naviconpic").eq(1).click(function () {
 		$("#pg1_main").attr("src", "./PG2-Study/pg2_main.html");
 		switchfn("#navul li", 1, "active");
+		switchfn("#verticalmenu_ul li", 1, "active");
 		GBFheight(0, "pg1_main");
 	});
 	$("#navul li").eq(1).click(function () {
 		$("#pg1_main").attr("src", "./PG2-Study/pg2_main.html");
 		switchfn("#navul li", 1, "active");
+		switchfn("#verticalmenu_ul li", 1, "active");
 		GBFheight(0, "pg1_main");
 	});
 
 	$(".naviconpic").eq(2).click(function () {
-		$("#pg1_main").attr("src", "./PG3-Chat/pg3_chat_main.html");
+		$("#pg1_main").attr("src", "./PG3-Chat/pg3_main.html");
 		switchfn("#navul li", 2, "active");
+		switchfn("#verticalmenu_ul li", 2, "active");
 		GBFheight(0, "pg1_main");
 	});
 	$("#navul li").eq(2).click(function () {
-		$("#pg1_main").attr("src", "./PG3-Chat/pg3_chat_main.html");
+		$("#pg1_main").attr("src", "./PG3-Chat/pg3_main.html");
 		switchfn("#navul li", 2, "active");
+		switchfn("#verticalmenu_ul li", 2, "active");
 		GBFheight(0, "pg1_main");
 	});
 
 	$(".naviconpic").eq(3).click(function () {
 		$("#pg1_main").attr("src", "./PG4-News/pg4_main.html");
 		switchfn("#navul li", 3, "active");
+		switchfn("#verticalmenu_ul li", 3, "active");
 		GBFheight(0, "pg1_main");
 	});
 	$("#navul li").eq(3).click(function () {
 		$("#pg1_main").attr("src", "./PG4-News/pg4_main.html");
 		switchfn("#navul li", 3, "active");
+		switchfn("#verticalmenu_ul li", 3, "active");
 		GBFheight(0, "pg1_main");
 	});
 
