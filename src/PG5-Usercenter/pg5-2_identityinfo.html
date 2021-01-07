@@ -17,24 +17,24 @@
 				<label for="inputPassword6" class="col-form-label">当前密码：</label>
 			</div>
 			<div class=" col-8">
-				<input type="password" id="inputbox_xuehao" class="form-control">
+				<input type="password" id="inputbox_mima" class="form-control">
 			</div>
 			<div class="offset-1 col-2">
 				<label for="inputPassword6" class="col-form-label">邮箱：</label>
 			</div>
 			<div class="col-8">
-				<input type="password" id="inputbox_xuehao" class="form-control">
+				<input type="text" id="inputbox_youxiang" class="form-control">
 			</div>
 			<div class="offset-1 col-2">
 				<label for="inputPassword6" class="col-form-label">手机：</label>
 			</div>
 			<div class="col-8">
-				<input type="password" id="inputbox_xuehao" class="form-control">
+				<input type="text" id="inputbox_shouji" class="form-control">
 			</div>
-			<div class="offset-3">
+			<div class="offset-3" id="btnbox1">
 				<button id="xiugaimima" class="btn btn-warning col-4 xiugaibtn" type="button">修改信息</button>
 			</div>
-			<div class="border-bottom" ></div>
+			<div class="border-bottom"></div>
 			<div class="col-3">
 				<label for="inputPassword6" class="col-form-label">密保问题：</label>
 			</div>
@@ -51,10 +51,10 @@
 				<label for="inputPassword6" class="col-form-label">密保答案：</label>
 			</div>
 			<div class="col-8">
-				<input type="password" id="inputbox_xuehao" class="form-control">
+				<input type="text" id="inputbox_xuehao" class="form-control">
 			</div>
-			<div class="offset-3">
-				<button id="xiugaixinxi" class="btn btn-warning col-4 xiugaibtn" type="button" onclick="">修改密保</button>
+			<div class="offset-3" id="btnbox2">
+				<button id="xiugaixinxi" class="btn btn-warning col-4 xiugaibtn" type="button">修改密保</button>
 			</div>
 
 
@@ -80,5 +80,13 @@
 		margin: 1em auto 1em auto;
 	}
 </style>
+<script>
+	var currentuser = JSON.parse(sessionStorage.getItem("file_currentuser"));
+	fillinput();
+	function fillinput() {
+		$("#inputbox_mima").val(currentuser.password);
+	}
+
+</script>
 
 </html>

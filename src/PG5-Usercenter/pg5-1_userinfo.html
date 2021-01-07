@@ -53,7 +53,7 @@
 
 			</div>
 			<div class="offset-2" id="btnbox">
-				<button id="xiugaixinxi" class="btn btn-warning col-6" type="button">修改信息</button>
+				<button id="xiugaixinxi" class="btn btn-warning col-6" type="button" onclick="xiugai()">修改信息</button>
 			</div>
 
 
@@ -63,30 +63,43 @@
 </body>
 <script>
 	var currentuser = JSON.parse(sessionStorage.getItem("file_currentuser"));
-	$("#inputbox_xuehao").val(currentuser.xuehao);
-	$("#inputbox_name").val(currentuser.name);
-	$("#inputbox_class").val(currentuser.banji);
-	$("#inputbox_age").val(currentuser.age);
-	$("#inputbox_sex").val(currentuser.sex);
+	fillinput();
+	function fillinput() {
+		$("#inputbox_xuehao").val(currentuser.xuehao);
+		$("#inputbox_name").val(currentuser.name);
+		$("#inputbox_class").val(currentuser.banji);
+		$("#inputbox_age").val(currentuser.age);
+		$("#inputbox_sex").val(currentuser.sex);
+	}
 
-	$("#xiugaixinxi").click(function () {
+	function xiugai() {
 		$("#listbox input").removeAttr("readonly");
 		$("#btnbox").html("");
-		$("#btnbox").html("<button id=\"queren\" class=\"btn btn-danger col-3\" type=\"button\">确认</button>"+
-		"<button id=\"quxiao\" class=\"btn btn-warning col-3\" type=\"button\">取消</button>");
-	});
+		$("#btnbox").html("<button id=\"queren\" class=\"btn btn-danger col-3\" type=\"button\" onclick=\"querenrt()\">确认</button>" +
+			"<button id=\"quxiao\" class=\"btn btn-warning col-3\" type=\"button\" onclick=\"quxiaort()\">取消</button>");
+	}
 
-	$("#queren").click(function(){
-		$("#listbox input").addAttr("readonly");
+	function querenrt() {
+		$("#listbox input").attr("readonly", "readonly");
 		$("#btnbox").html("");
-		$("#btnbox").html("<button id=\"xiugaixinxi\" class=\"btn btn-warning col-6\" type=\"button\">修改信息</button>");
-	});
-	$("#quxiao").click(function(){
-		$("#listbox input").addAttr("readonly");
+		$("#btnbox").html("<button id=\"xiugaixinxi\" class=\"btn btn-warning col-6\" type=\"button\" onclick=\"xiugai()\">修改信息</button>");
+		currentuser.xuehao = $("#inputbox_xuehao").val();
+		currentuser.name = $("#inputbox_name").val();
+		currentuser.banji = $("#inputbox_class").val();
+		currentuser.age = $("#inputbox_age").val();
+		currentuser.sex = $("#inputbox_sex").val();
+		sessionStorage.setItem("file_currentuser", currentuser);
+		return
+	}
+
+	function quxiaort() {
+		$("#listbox input").attr("readonly", "readonly");
 		$("#btnbox").html("");
-		$("#btnbox").html("<button id=\"xiugaixinxi\" class=\"btn btn-warning col-6\" type=\"button\">修改信息</button>");
-	});
-	
+		$("#btnbox").html("<button id=\"xiugaixinxi\" class=\"btn btn-warning col-6\" type=\"button\" onclick=\"xiugai()\">修改信息</button>");
+		fillinput();
+		return
+	}
+
 </script>
 <style>
 	.form-group {
@@ -119,7 +132,7 @@
 		margin-top: 1em;
 	}
 
-	#quxiao{
+	#quxiao {
 		margin-left: 1em;
 	}
 </style>

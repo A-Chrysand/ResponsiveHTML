@@ -67,18 +67,26 @@
 	var animatecounter = 0;
 	var currentlayer = 0;
 	$("#navpillsul li").eq(0).click(function () {
+		$("#navpillsul li a").eq(0).addClass("active");
+		$("#navpillsul li a:not(:eq(0))").removeClass("active");
 		movedecision(currentlayer, 0);
 		currentlayer = 0;
 	});
 	$("#navpillsul li").eq(1).click(function () {
+		$("#navpillsul li a").eq(1).addClass("active");
+		$("#navpillsul li a:not(:eq(1))").removeClass("active");
 		movedecision(currentlayer, 1);
 		currentlayer = 1;
 	});
 	$("#navpillsul li").eq(2).click(function () {
+		$("#navpillsul li a").eq(2).addClass("active");
+		$("#navpillsul li a:not(:eq(2))").removeClass("active");
 		movedecision(currentlayer, 2);
 		currentlayer = 2;
 	});
 	$("#navpillsul li").eq(3).click(function () {
+		$("#navpillsul li a").eq(3).addClass("active");
+		$("#navpillsul li a:not(:eq(3))").removeClass("active");
 		movedecision(currentlayer, 3);
 		currentlayer = 3;
 	});
