@@ -4,12 +4,12 @@ body {
 }
 
 #horzionalnav ul {
-	left: 15%;
+
 	position: absolute;
 	display: flex;
 	padding: 0px;
 	margin: 0px;
-	width: 70%;
+	width: 100%;
 	height: var(--totalheight);
 	border-bottom: none;
 	cursor: pointer;

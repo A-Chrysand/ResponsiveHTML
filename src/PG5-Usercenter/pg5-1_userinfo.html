@@ -62,9 +62,9 @@
 
 </body>
 <script>
-	var currentuser = JSON.parse(sessionStorage.getItem("file_currentuser"));
+	var currentuser = JSON.parse(sessionStorage.getItem("file_currentuser"));//从之前保存在浏览器缓存的数据中读取当前用户信息
 	fillinput();
-	function fillinput() {
+	function fillinput() {//在各种输入框中填入用户信息
 		$("#inputbox_xuehao").val(currentuser.xuehao);
 		$("#inputbox_name").val(currentuser.name);
 		$("#inputbox_class").val(currentuser.banji);

@@ -63,7 +63,7 @@ function fillcollectiontable(collectionjson, length) {
 		$(addcls(collectiontable_unit_mingcheng)).eq(i).html(collectionjson[0].clttitle[i]);
 		$(addcls(collectiontable_unit_jianjietext)).eq(i).html(collectionjson[0].discription[i]);
 		$(addcls(collectiontable_unit_wangzhi)).eq(i).html(collectionjson[0].cltsite[i]);
-		$(addcls(collectiontable_unit_goto)).eq(i).html('<a target="_blank" href="' + collectionjson[0].cltsite[i] + '">菜鸟</a>');
+		$(addcls(collectiontable_unit_goto)).eq(i).html('<a target="_blank" href="' + collectionjson[0].cltsite[i] + '">Go↗</a>');
 
 	}
 }

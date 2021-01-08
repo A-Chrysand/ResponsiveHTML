@@ -4,18 +4,18 @@ var currentuser = new Object();
 
 
 window.onload = function () {
-	readjsonfile("../../database/userconfig.json");
-	$("#lg_input_text").val("123");
-	$("#lg_input_psw").val("123");
+	readjsonfile("../../database/userconfig.json");		//异步读取数据库
+	$("#lg_input_text").val("11451123");				//在账号框内置输入
+	$("#lg_input_psw").val("mima");						//在密码框内置输入
 }
 
-function saveNopennewpage() {
-	sessionStorage.setItem("file_currentuser", JSON.stringify(currentuser));
+function saveNopennewpage() {//保存当前用户并跳转到主页
+	sessionStorage.setItem("file_currentuser", JSON.stringify(currentuser));//session保存数据到浏览器缓存
 	location.href = "../host.html";		//切换到目标页面
 }
 
 
-function readjsonfile(targetstr) {
+function readjsonfile(targetstr) {//XHTML异步读取数据库
 	var request = new XMLHttpRequest();
 	request.open("get", targetstr);
 	request.send(null);
