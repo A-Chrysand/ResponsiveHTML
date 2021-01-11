@@ -22,11 +22,6 @@ function drawbooktable(targetstr3) {
 	var table_ = $("." + booktable_classname);
 	var tr_;
 	for (var i = 0; i < bookitem_num; i++) {
-		/*if (i == 0) {
-			//添加周信息
-			table_.append('<tr class="' + booktable_unit_caption_classname + '"><th class="' + booktable_unit_caption_classname + '">名称</th><th class="' + booktable_unit_caption_classname + '">简介</th><th class="' + booktable_unit_caption_classname + '">网址</th><th class="' + booktable_unit_caption_classname + '">立即访问</th></tr >');
-		}
-		else {*/
 		table_.append('<tr class="trrow"></tr>');	//添加行元素
 		tr_ = $(".trrow").eq(i);
 		tr_.append("<td class=\"" + booktable_unit_img + "\"> </td>");
@@ -50,8 +45,6 @@ function pg3_goodbooks_booktable_StyleSetting() {
 		"table-layout": "fixed",
 		"width": "100%",
 	})//定义表格属性
-	$(addcls(booktable_unit_caption_classname)).eq(0).css({ "width": "4em" });//选择图像单元格列的宽度
-	$(addcls(booktable_unit_caption_classname)).eq(1).css({ "width": "6em" });//选择介绍单元格列的宽度
 	$(addcls(booktable_unit_img) + "," + addcls(booktable_unit_jieshao)).css({
 		"border-collapse": "collapse",
 		"border": "rgb(156, 202, 213) 2px solid",

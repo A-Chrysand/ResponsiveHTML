@@ -107,7 +107,7 @@ function pg3_life_moneytable_StyleSetting() {
 		"line-height": "2em"
 	});//定义表头属性
 	$(addcls(moneytable_unit_caption_classname)).eq(1).css({ "width": "4em" });//选择序号列的宽度
-	$(addcls(moneytable_unit_caption_classname)).eq(3).css({ "width": "6em" });//选择截止时间列的宽度
+	$(addcls(moneytable_unit_caption_classname)).eq(3).css({ "width": "6em" });//选择价格列的宽度
 	$(addcls(moneytable_unit_caption_classname)).eq(4).css({ "width": "6em" });//选择状态列的宽度
 	$(addcls(moneytable_unit_caption_classname)).eq(5).css({ "width": "4em" });//选择Do it列的宽度
 
