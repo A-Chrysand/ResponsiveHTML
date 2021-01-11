@@ -138,7 +138,6 @@ function pg3_life_moneytable_StyleSetting() {
 }
 
 
-
 function addid(targetid) {
 	return "#" + targetid.toString();
 }
